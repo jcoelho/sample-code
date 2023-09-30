@@ -1,0 +1,49 @@
+        Snapshot Management Scripts
+              Version 1.2.0
+              Release Notes
+
+
+INTRODUCTION:
+
+This document contains the release notes for this version of the Snapshot Management Scripts.
+It's based on the documents providing a set of policies for the snapshot management at a specific aws account.
+@see:	https://<INTERNAL-URL>
+
+To keep the snapshot indefinitely, the "preserve_snapshot" tag key should be added to the snapshot (the tag value may be any).
+
+CHANGES:
+
+2.0
+
+- Updated boto library to version 3
+- Add support for STS Assume role (no need of using access or secret keys)
+- Improves Auto scaling API calls to add description to snapshot metadata
+
+1.3.0
+
+- Avoid auto scaling API calls to add metadata to the created snapshot.
+
+1.2.0
+
+- Add support to pass the region code by argument
+
+1.1.0
+
+- Error retries and exponential backoff when getting all autoscaling groups and autoscaling instances.
+- Exception handling when creating snapshots in defined policies.
+- Reduced number of function calls when getting a list of all autoscaling groups.
+- Exception handling when getting volumes attached to an instance that does not exists
+
+
+1.0.0
+
+- Adds a description at the beginning of "snapCreation.py" script.
+- Adds "createSnapshotsDryRun" function to describe the list of volumes before snapshot creation.
+- Fixed typo in the "Stage-QA" policy tag.
+- Fixed hard-coded strings for log file name.
+- Support for product tag instead of project tag.
+- Adds more description of the snapshots to be created in "snapCreation.py".
+- Adds more description of the snapshots to be pruned in "trimSnapshots.py".
+- Adds check if snapshot is related to an AMI before snapshot delete.
+- Reduces script running time by optimizing AWS API calls.
+- Add more info to snapshot creation description.
